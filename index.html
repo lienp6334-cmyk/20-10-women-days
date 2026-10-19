@@ -339,7 +339,7 @@
 
 <audio id="bgMusic" loop>
   <!-- Nhạc nền: dùng file online miễn phí. Thay link nếu muốn nhạc khác -->
-  <source src="music.mp3" type="audio/mpeg">
+  <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_946bc8f31f.mp3" type="audio/mpeg">
 </audio>
 
 <div class="stage">
@@ -477,14 +477,6 @@ function submitName() {
   localStorage.setItem('c4_name', name);
   nameShow.textContent = '💝 ' + name + ' 💝';
   randomWish();
-  // Tự phát nhạc khi bấm nhận lời chúc
-  if (!musicOn) {
-    music.play().then(() => {
-      musicBtn.textContent = '🎵';
-      musicBtn.classList.add('playing');
-      musicOn = true;
-    }).catch(() => {});
-  }
   document.getElementById('step1').classList.add('hidden');
   document.getElementById('step2').classList.remove('hidden');
   launchConfetti();
@@ -687,4 +679,4 @@ musicBtn.addEventListener('click', () => {
 </script>
 
 </body>
-</html>
+</html
