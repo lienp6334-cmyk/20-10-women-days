@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💐 Chúc Mừng 20-10 — 12C4 💐</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    min-height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    background: #1a0033;
+  }
+
+  /* ====== NỀN GRADIENT ĐỘNG ====== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(-45deg, #ff6b9d, #c44dff, #6b5bff, #ff4d94, #ffb347);
+    background-size: 400% 400%;
+    animation: gradientShift 18s ease infinite;
+    z-index: -3;
+  }
+  @keyframes gradientShift {
+    0%,100% { background-position: 0% 50%; }
+    50%     { background-position: 100% 50%; }
+  }
+
+  /* Lớp phủ tối để chữ nổi */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 40%, rgba(26,0,51,0.3), rgba(26,0,51,0.85));
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  /* Canvas particle */
+  #particles {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* ====== BOX CHÍNH ====== */
+  .stage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+  }
+
+  .card {
+    position: relative;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1.5px solid rgba(255,255,255,0.28);
+    border-radius: 28px;
+    padding: 48px 44px;
+    max-width: 580px;
+    width: 100%;
+    text-align: center;
+    box-shadow:
+      0 25px 70px rgba(0,0,0,0.45),
+      0 0 90px rgba(255,107,157,0.35),
+      inset 0 1px 1px rgba(255,255,255,0.35);
+    animation: cardIn 0.9s cubic-bezier(.16,.84,.44,1) both;
+  }
+  @keyframes cardIn {
+    from { transform: translateY(40px) scale(0.92); opacity: 0; }
+    to   { transform: translateY(0)    scale(1);    opacity: 1; }
+  }
+
+  /* Viền sáng chạy quanh card */
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 30px;
+    padding: 2px;
+    background: linear-gradient(120deg, #ff6b9d, #ffd86b, #6b5bff, #ff4d94, #ff6b9d);
+    background-size: 300% 300%;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    animation: borderFlow 6s linear infinite;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  @keyframes borderFlow {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+  }
+
+  .hidden { display: none !important; }
+
+  /* ====== TYPOGRAPHY ====== */
+  h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff, #ffd1e6, #ffe8a3, #fff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 4s linear infinite;
+    text-shadow: 0 4px 30px rgba(255,107,157,0.5);
+  }
+  @keyframes shimmer {
+    to { background-position: 200% center; }
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 22px;
+    line-height: 1.6;
+  }
+
+  /* ====== INPUT & BUTTON ====== */
+  input[type="text"] {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1.05rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: #fff;
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    border-radius: 16px;
+    outline: none;
+    transition: all 0.3s;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  input::placeholder { color: rgba(255,255,255,0.55); }
+  input:focus {
+    border-color: #ffd1e6;
+    background: rgba(255,255,255,0.20);
+    box-shadow: 0 0 0 4px rgba(255,107,157,0.25);
+  }
+
+  button {
+    width: 100%;
+    padding: 16px;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #ff6b9d, #c44dff, #6b5bff);
+    background-size: 200% 200%;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s, background-position 0.5s;
+    box-shadow: 0 10px 30px rgba(255,107,157,0.45);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+  }
+  button:hover {
+    transform: translateY(-2px);
+    background-position: 100% 0;
+    box-shadow: 0 15px 40px rgba(196,77,255,0.55);
+  }
+  button:active { transform: translateY(0) scale(0.98); }
+
+  button::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+    transition: left 0.6s;
+  }
+  button:hover::after { left: 100%; }
+
+  .btn-secondary {
+    background: linear-gradient(135deg, #ffa751, #ff6b9d);
+    box-shadow: 0 10px 30px rgba(255,167,81,0.4);
+    margin-top: 10px;
+  }
+  .btn-secondary:hover {
+    box-shadow: 0 15px 40px rgba(255,167,81,0.55);
+  }
+
+  /* ====== KẾT QUẢ ====== */
+  .name-badge {
+    display: inline-block;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 8px 28px;
+    margin: 8px 0 22px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.12));
+    border: 1.5px solid rgba(255,255,255,0.4);
+    border-radius: 999px;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(255,107,157,0.7);
+    animation: badgePop 0.6s cubic-bezier(.16,1.4,.44,1) both;
+  }
+  @keyframes badgePop {
+    from { transform: scale(0.6); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+
+  .wish-box {
+    position: relative;
+    background: rgba(255,255,255,0.14);
+    border-left: 5px solid #ffd1e6;
+    border-radius: 16px;
+    padding: 26px 24px;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: #fff;
+    font-weight: 500;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    text-align: left;
+    margin-bottom: 22px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 10px 30px rgba(0,0,0,0.25);
+    min-height: 110px;
+    animation: wishIn 0.6s ease both;
+  }
+  @keyframes wishIn {
+    from { transform: translateY(12px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  .wish-box::before {
+    content: '💌';
+    position: absolute;
+    top: -18px; left: 18px;
+    font-size: 1.6rem;
+    filter: drop-shadow(0 4px 10px rgba(255,107,157,0.6));
+  }
+
+  /* ====== FLOATING EMOJI ====== */
+  .float-emoji {
+    position: fixed;
+    pointer-events: none;
+    font-size: 26px;
+    animation: floatUp linear forwards;
+    opacity: 0;
+    z-index: 1;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(0) rotate(0deg)   scale(0.5); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(720deg) scale(1.1); opacity: 0; }
+  }
+
+  /* ====== MUSIC TOGGLE ====== */
+  .music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255,255,255,0.4);
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+  .music-btn:hover {
+    background: rgba(255,255,255,0.28);
+    transform: scale(1.1);
+  }
+  .music-btn.playing {
+    animation: pulseMusic 1.5s ease-in-out infinite;
+  }
+  @keyframes pulseMusic {
+    0%,100% { box-shadow: 0 0 0 0 rgba(255,107,157,0.6); }
+    50%     { box-shadow: 0 0 0 15px rgba(255,107,157,0); }
+  }
+
+  /* ====== FOOTER ====== */
+  .signature {
+    position: fixed;
+    bottom: 14px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    font-style: italic;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+  }
+
+  /* ====== CONFETTI CANVAS ====== */
+  #confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 36px 24px; border-radius: 22px; }
+    h1 { font-size: 2rem; }
+    .name-badge { font-size: 1.5rem; padding: 6px 20px; }
+    .wish-box { font-size: 1rem; padding: 22px 18px; }
+    .music-btn { width: 46px; height: 46px; font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Canvas particle nền -->
+<canvas id="particles"></canvas>
+<!-- Canvas confetti khi bấm nút -->
+<canvas id="confetti"></canvas>
+
+<!-- Nút nhạc -->
+<button class="music-btn" id="musicBtn" title="Bật/tắt nhạc">🔇</button>
+
+<audio id="bgMusic" loop>
+  <!-- Nhạc nền: dùng file online miễn phí. Thay link nếu muốn nhạc khác -->
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="stage">
+
+  <!-- BƯỚC 1 -->
+  <div class="card" id="step1">
+    <h1>Chào mừng đến với 20-10</h1>
+    <p class="subtitle">Gửi đến các cô gái xinh đẹp của <strong>12C4</strong> 💐<br>Nhập tên của bạn để nhận lời chúc nhé!</p>
+    <input type="text" id="nameInput" placeholder="Nhập tên của bạn..." maxlength="30" autocomplete="off">
+    <button onclick="submitName()">Nhận lời chúc 🎁</button>
+  </div>
+
+  <!-- BƯỚC 2 -->
+  <div class="card hidden" id="step2">
+    <h1>Gửi bạn 💌</h1>
+    <div class="name-badge" id="nameShow"></div>
+    <div class="wish-box" id="wishShow"></div>
+    <button class="btn-secondary" onclick="randomWish()">🎲 Lời chúc khác</button>
+    <button class="btn-secondary" style="background: linear-gradient(135deg,#6b5bff,#c44dff); margin-top:10px;" onclick="backHome()">👈 Nhập tên khác</button>
+  </div>
+
+</div>
+
+<div class="signature">Made with ❤️ for 12C4</div>
+
+<script>
+/* ============================================
+   DANH SÁCH LỜI CHÚC — 60+ câu cho nữ 12C4
+   ============================================ */
+const wishes = [
+  // 🌸 NGỌT NGÀO
+  "Gửi đến cậu — cô gái của 12C4: mong cậu luôn rạng rỡ như nắng sớm, dịu dàng như gió chiều, và mạnh mẽ như chính cậu vẫn luôn là. 20-10 vui vẻ nhé! 🌷",
+  "Cảm ơn cậu đã xuất hiện trong thanh xuân của tớ. Chúc cậu ngày 20-10 thật nhiều niềm vui, và mong mọi điều cậu mong cũng sẽ đến với cậu 💖",
+  "12C4 có cậu là một điều may mắn. Chúc cậu luôn xinh, luôn cười, và luôn là phiên bản tuyệt vời nhất của chính mình 🌸",
+  "Mong cậu mãi giữ được nụ cười ấy — nụ cười đã làm ấm cả những ngày lớp mình mệt nhất. Happy 20-10! 💐",
+  "Chúc cậu đủ dũng cảm để theo đuổi ước mơ, đủ dịu dàng để yêu thương bản thân, và đủ may mắn để gặp những điều tử tế ✨",
+  "Cậu không cần phải hoàn hảo để được yêu thương. Chúc cậu ngày 20-10 thật bình yên và hạnh phúc 🌼",
+  "Mong những ngày tháng cuối cấp của cậu thật rực rỡ, và sau này nhớ về 12C4, cậu sẽ mỉm cười thật tươi 💕",
+  "Cậu là một trong những điều đẹp nhất mà 12C4 có được. Chúc mừng ngày của cậu, cô gái đáng yêu! 🌺",
+
+  // 🎓 KỶ NIỆM LỚP 12
+  "Mong cậu nhớ rằng: dù mai này mỗi đứa một phương, thì 12C4 vẫn luôn có một chỗ dành cho cậu. 20-10 vui vẻ nhé! 🎓",
+  "Cảm ơn cậu vì những giờ học, những lần cười nghiêng ngả, và cả những lần cùng nhau 'chống trả' bài kiểm tra. Chúc mừng ngày của cậu! 📚",
+  "Từ cô nữ sinh lớp 10 đến cô gái 12C4 hôm nay — cậu đã trưởng thành rất nhiều. Chúc cậu ngày 20-10 thật ý nghĩa 🌷",
+  "Chúc cậu thi tốt, đỗ nguyện vọng 1, và luôn giữ được sự dịu dàng đáng quý ấy. 20-10 vui vẻ! 🍀",
+  "Mong rằng khi rời xa mái trường này, cậu mang theo thật nhiều kỷ niệm đẹp của 12C4. Chúc mừng ngày Phụ nữ Việt Nam 💝",
+  "Chúc cậu một mùa thi cuối cấp thật bình an, và một tương lai rộng mở phía trước. Cố lên nhé, cô gái 12C4! 🎓💐",
+
+  // 😄 HÀI HƯỚC
+  "Chúc cậu 20-10 thật vui, ăn hoài không mập, học hoài không dốt, và crush sớm đổ nha 😆💖",
+  "20-10 này chúc cậu: ví luôn rủng rỉnh, điểm luôn cao, và đặc biệt là — không bao giờ phải ngồi bàn đầu nữa 😂",
+  "Chúc cậu xinh đẹp như hoa, học giỏi như thần đồng, và không bao giờ phải 'chạy deadline' vào phút chót nữa nhé! 🌸",
+  "Mong cậu luôn là cô gái khiến mọi người trong lớp phải quay lại nhìn — vì cậu cười quá đẹp, chứ không phải vì cậu làm ồn đâu 😜💕",
+  "20-10 vui vẻ! Chúc cậu sớm tìm được người yêu thương cậu đúng nghĩa... hoặc ít nhất là tìm được người cho copy bài 😅",
+  "Chúc cậu ngày 20-10 ngập tràn quà, và đặc biệt là — không có bài kiểm tra nào rơi vào đúng ngày này cả 😂🎁",
+
+  // 💪 TRUYỀN CẢM HỨNG
+  "Cậu mạnh mẽ hơn cậu nghĩ rất nhiều. Chúc cậu ngày 20-10 thật tự tin và tỏa sáng theo cách riêng của mình ✨",
+  "Đừng so sánh mình với ai cả — cậu là phiên bản duy nhất, và điều đó đã đủ tuyệt vời rồi. Happy 20-10! 🌷",
+  "Mong cậu luôn nhớ: giá trị của cậu không nằm ở điểm số, ngoại hình hay lời khen của người khác. Cậu đã rất tuyệt rồi 💐",
+  "Chúc cậu đủ bản lĩnh để nói 'không' với điều không xứng đáng, và đủ dịu dàng để yêu thương chính mình 💖",
+  "Cô gái 12C4 à, đừng ngại tỏa sáng. Vì thế giới này cần những người như cậu — vừa giỏi giang, vừa tử tế 🌸",
+  "Hãy cứ là chính mình, vì cậu của hiện tại đã là một phiên bản rất đáng yêu rồi. Chúc mừng 20-10! 🌷",
+
+  // 🕊️ SÂU SẮC
+  "Thanh xuân ngắn lắm, nên hãy cứ yêu thương, cứ cười, cứ sống hết mình. Chúc cậu ngày 20-10 thật trọn vẹn 💝",
+  "Mong sau này, dù cuộc sống có khó khăn đến đâu, cậu vẫn nhớ rằng mình từng là cô nữ sinh 12C4 rực rỡ và đáng yêu nhường nào 🌷",
+  "Điều đẹp nhất ở cậu không phải vẻ ngoài, mà là cách cậu đối xử tử tế với mọi người. Chúc mừng ngày của cậu 💐",
+  "Mong cậu sẽ luôn là người phụ nữ tự tin, độc lập và hạnh phúc — không phải vì ai, mà vì chính cậu xứng đáng 🌸",
+  "Chúc cậu ngày 20-10 — và cả những ngày bình thường khác — đều tràn ngập yêu thương. Vì cậu xứng đáng được yêu thương mỗi ngày, không chỉ hôm nay ✨",
+  "Có những cô gái không cần cố gắng nổi bật, chỉ cần là chính mình đã đủ khiến người khác nhớ mãi. Cậu là một trong số đó 💖",
+  "Mong cậu luôn giữ được sự trong trẻo ấy — thứ đã khiến cậu trở nên đặc biệt giữa bao người 🌷",
+
+  // 🌹 NGẮN GỌN DỄ THƯƠNG
+  "Chúc cậu 20-10 thật nhiều hoa, thật nhiều quà, và thật nhiều yêu thương 🌹",
+  "Mong nụ cười cậu luôn nở trên môi, như hoa luôn nở dưới nắng 🌸",
+  "Cậu xứng đáng với mọi điều tốt đẹp nhất. Happy 20-10! 💐",
+  "Chúc cậu luôn xinh, luôn vui, luôn được yêu thương 💖",
+  "Gửi cậu ngàn đóa hoa và vạn lời chúc tốt lành 🌷",
+  "20-10 vui vẻ, cô gái đáng yêu của 12C4! 🌼",
+  "Mong cậu mãi là cô gái khiến người khác phải mỉm cười khi nhớ về 💕",
+  "Chúc cậu hôm nay thật đặc biệt, và mỗi ngày sau còn đặc biệt hơn thế 🌸",
+
+  // 💫 MƠ MỘNG
+  "Mong ước mơ của cậu sẽ thành hiện thực, và con đường phía trước luôn rải đầy hoa hồng 🌹",
+  "Chúc cậu gặp được những người yêu thương cậu đúng cách, và bỏ lỡ những người không xứng đáng ✨",
+  "Mong cậu luôn có một bờ vai để dựa vào, và một trái tim đủ ấm để sẻ chia 💖",
+  "Chúc cậu những ngày tháng sau này đều ngập nắng, và những đêm dài đều có sao 🌟",
+  "Mong cuộc đời cậu sẽ là một câu chuyện đẹp mà cậu tự hào kể lại 💐",
+  "Chúc cậu có đủ can đảm để bắt đầu, đủ kiên nhẫn để tiếp tục, và đủ may mắn để thành công 🍀",
+
+  // 🎀 DÀNH RIÊNG CHO 12C4
+  "12C4 có 1001 lý do để tự hào, và một trong số đó là cậu. Chúc mừng ngày 20-10! 💝",
+  "Nếu thanh xuân là một cuốn sách, thì cậu là một trong những trang đẹp nhất của 12C4 🌸",
+  "Cảm ơn cậu đã là một phần thanh xuân của tất cả chúng tớ. Chúc cậu ngày 20-10 thật ý nghĩa 💐",
+  "Mong cậu luôn nhớ: 12C4 tự hào vì có cậu. Chúc mừng ngày của cậu, cô gái tuyệt vời! 🌷",
+  "Dù mai này có đi đâu, làm gì, cậu vẫn luôn là một phần của gia đình 12C4. Happy 20-10! 💖",
+  "Chúc cậu luôn giữ được tình bạn đẹp với 12C4, và luôn là cô gái mà lớp mình yêu quý 🌼",
+  "12C4 không hoàn hảo, nhưng có những cô gái như cậu — và điều đó khiến nó trở nên đặc biệt 💕",
+
+  // 🎁 TỔNG HỢP
+  "Chúc cậu 20-10: sức khỏe dồi dào, tình duyên viên mãn, sự nghiệp thăng hoa 🌟",
+  "Mong tháng ngày phía trước của cậu đều dịu dàng như chính cậu vậy 💐",
+  "Chúc cậu có một ngày 20-10 thật đáng nhớ, và một năm thật nhiều niềm vui 🎉",
+  "Cảm ơn cậu vì đã luôn dịu dàng với thế giới này. Chúc cậu ngày 20-10 thật hạnh phúc 💖",
+  "Chúc cậu luôn là cô gái khiến người khác phải mỉm cười — không phải vì cậu cố gắng, mà vì cậu là chính cậu 🌸",
+  "Mong cậu luôn có lý do để cười mỗi ngày, và luôn có người để chia sẻ mọi điều 💕",
+  "Chúc cậu một đời bình an, một đời hạnh phúc, và một đời luôn được yêu thương 🌷",
+  "20-10 này, mong cậu nhận được nhiều yêu thương hơn cậu mong đợi. Vì cậu xứng đáng 💝"
+];
+
+/* ============================================
+   LOGIC
+   ============================================ */
+let currentName = "";
+const nameInput = document.getElementById('nameInput');
+const nameShow  = document.getElementById('nameShow');
+const wishShow  = document.getElementById('wishShow');
+
+// Khôi phục tên đã lưu
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('c4_name');
+  if (saved) nameInput.value = saved;
+});
+
+function submitName() {
+  const name = nameInput.value.trim();
+  if (!name) {
+    nameInput.focus();
+    nameInput.style.animation = 'shake 0.4s';
+    setTimeout(() => nameInput.style.animation = '', 400);
+    return;
+  }
+  currentName = name;
+  localStorage.setItem('c4_name', name);
+  nameShow.textContent = '💝 ' + name + ' 💝';
+  randomWish();
+  // Tự phát nhạc khi bấm nhận lời chúc
+  if (!musicOn) {
+    music.play().then(() => {
+      musicBtn.textContent = '🎵';
+      musicBtn.classList.add('playing');
+      musicOn = true;
+    }).catch(() => {});
+  }
+  document.getElementById('step1').classList.add('hidden');
+  document.getElementById('step2').classList.remove('hidden');
+  launchConfetti();
+  burstEmojis();
+}
+
+function randomWish() {
+  const w = wishes[Math.floor(Math.random() * wishes.length)];
+  wishShow.style.animation = 'none';
+  void wishShow.offsetWidth;
+  wishShow.textContent = w;
+  wishShow.style.animation = 'wishIn 0.6s ease both';
+  burstEmojis();
+}
+
+function backHome() {
+  document.getElementById('step2').classList.add('hidden');
+  document.getElementById('step1').classList.remove('hidden');
+  nameInput.value = '';
+  nameInput.focus();
+}
+
+nameInput.addEventListener('keypress', e => {
+  if (e.key === 'Enter') submitName();
+});
+
+// Hiệu ứng shake khi không nhập tên
+const style = document.createElement('style');
+style.textContent = `@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25%     { transform: translateX(-8px); }
+  75%     { transform: translateX(8px); }
+}`;
+document.head.appendChild(style);
+
+/* ============================================
+   EMOJI BAY LÊN
+   ============================================ */
+const emojiList = ['🌸','💖','🌷','✨','💐','🌹','💝','🌺','🎀','💫'];
+function burstEmojis() {
+  for (let i = 0; i < 8; i++) {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'float-emoji';
+      el.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
+      el.style.left = (Math.random() * 100) + 'vw';
+      el.style.bottom = '-40px';
+      el.style.fontSize = (18 + Math.random() * 20) + 'px';
+      el.style.animationDuration = (4 + Math.random() * 3) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 8000);
+    }, i * 80);
+  }
+}
+// Emoji rơi nền liên tục
+setInterval(() => {
+  if (Math.random() < 0.6) {
+    const el = document.createElement('div');
+    el.className = 'float-emoji';
+    el.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
+    el.style.left = (Math.random() * 100) + 'vw';
+    el.style.bottom = '-40px';
+    el.style.fontSize = (14 + Math.random() * 16) + 'px';
+    el.style.animationDuration = (6 + Math.random() * 4) + 's';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 11000);
+  }
+}, 900);
+
+/* ============================================
+   PARTICLE NỀN (sao lấp lánh)
+   ============================================ */
+const pCanvas = document.getElementById('particles');
+const pCtx = pCanvas.getContext('2d');
+let particles = [];
+
+function resizeParticles() {
+  pCanvas.width = window.innerWidth;
+  pCanvas.height = window.innerHeight;
+}
+resizeParticles();
+window.addEventListener('resize', resizeParticles);
+
+function initParticles() {
+  particles = [];
+  const count = Math.min(90, Math.floor(window.innerWidth / 14));
+  for (let i = 0; i < count; i++) {
+    particles.push({
+      x: Math.random() * pCanvas.width,
+      y: Math.random() * pCanvas.height,
+      r: Math.random() * 2 + 0.5,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      a: Math.random() * 0.6 + 0.2,
+      hue: Math.random() * 60 + 300
+    });
+  }
+}
+initParticles();
+
+function drawParticles() {
+  pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+  particles.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x = pCanvas.width;
+    if (p.x > pCanvas.width) p.x = 0;
+    if (p.y < 0) p.y = pCanvas.height;
+    if (p.y > pCanvas.height) p.y = 0;
+    pCtx.beginPath();
+    pCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    pCtx.fillStyle = hsla(${p.hue}, 100%, 75%, ${p.a});
+    pCtx.shadowBlur = 12;
+    pCtx.shadowColor = hsla(${p.hue}, 100%, 75%, ${p.a});
+    pCtx.fill();
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+/* ============================================
+   CONFETTI KHI BẤM NÚT
+   ============================================ */
+const cCanvas = document.getElementById('confetti');
+const cCtx = cCanvas.getContext('2d');
+let confettis = [];
+
+function resizeConfetti() {
+  cCanvas.width = window.innerWidth;
+  cCanvas.height = window.innerHeight;
+}
+resizeConfetti();
+window.addEventListener('resize', resizeConfetti);
+
+const confColors = ['#ff6b9d','#ffd86b','#6b5bff','#ff4d94','#c44dff','#ffa751','#fff'];
+
+function launchConfetti() {
+  for (let i = 0; i < 120; i++) {
+    confettis.push({
+      x: cCanvas.width / 2 + (Math.random() - 0.5) * 200,
+      y: cCanvas.height / 2,
+      vx: (Math.random() - 0.5) * 14,
+      vy: Math.random() * -14 - 4,
+      size: Math.random() * 8 + 4,
+      color: confColors[Math.floor(Math.random() * confColors.length)],
+      rot: Math.random() * 360,
+      rotV: (Math.random() - 0.5) * 12,
+      life: 1
+    });
+  }
+}
+
+function drawConfetti() {
+  cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+  confettis = confettis.filter(c => c.life > 0 && c.y < cCanvas.height + 50);
+  confettis.forEach(c => {
+    c.vy += 0.45;
+    c.vx *= 0.99;
+    c.x += c.vx;
+    c.y += c.vy;
+    c.rot += c.rotV;
+    c.life -= 0.008;
+    cCtx.save();
+    cCtx.translate(c.x, c.y);
+    cCtx.rotate(c.rot * Math.PI / 180);
+    cCtx.globalAlpha = Math.max(0, c.life);
+    cCtx.fillStyle = c.color;
+    cCtx.fillRect(-c.size/2, -c.size/2, c.size, c.size * 0.6);
+    cCtx.restore();
+  });
+  requestAnimationFrame(drawConfetti);
+}
+drawConfetti();
+
+/* ============================================
+   NHẠC NỀN
+   ============================================ */
+const music = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicBtn');
+let musicOn = false;
+
+music.volume = 0.35;
+
+musicBtn.addEventListener('click', () => {
+  if (musicOn) {
+    music.pause();
+    musicBtn.textContent = '🔇';
+    musicBtn.classList.remove('playing');
+    musicOn = false;
+  } else {
+    music.play().then(() => {
+      musicBtn.textContent = '🎵';
+      musicBtn.classList.add('playing');
+      musicOn = true;
+    }).catch(err => {
+      console.warn('Không phát được nhạc:', err);
+      alert('Trình duyệt chặn phát nhạc. Vui lòng bấm lại lần nữa!');
+    });
+  }
+});
+</script>
+
+</body>
+</html>
